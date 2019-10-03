@@ -2,7 +2,7 @@
 import sys
 import os
 home = os.path.expanduser("~")
-wavypath = home + '/wavy/wavy'
+wavypath = home + '/wavyMini/wavyMini'
 sys.path.append(wavypath)
 
 from datetime import datetime, timedelta
@@ -25,7 +25,7 @@ If file exists, data is appended.
 
 Usage:
 ./collocate.py
-./collocate.py -sd 2018110112 -ed 2018110118
+./collocate.py -sd 2019100118 -ed 2019100118 -sat c2 -mod SWAN -reg Vietnam
     """,
     formatter_class = RawTextHelpFormatter
     )
@@ -58,7 +58,7 @@ else:
                 int(args.ed[6:8]),int(args.ed[8:10]))
 
 if args.path is None:
-    args.path = '/home/vietadm/wavy/data'
+    args.path = '/home/vietadm/wavyMini/data'
 # retrieve PID
 grab_PID()
 

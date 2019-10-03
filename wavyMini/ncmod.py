@@ -122,6 +122,24 @@ def get_nc_ts(pathtofile,varlst):
         nc.close()
     return vardict
 
+def get_coll_ts(pathtofile):
+    import os.path
+    indicator = os.path.isfile(pathtofile)
+    if indicator is False:
+        dtime = False
+        print('File does not exist')
+        return
+    else:
+        nc = netCDF4.Dataset(
+            pathtofile,mode='r',
+            )
+        time_var = nc.variables['time']
+        dtime = netCDF4.num2date(time_var[:],time_var.units)
+        sHs = nc.variables['sHs'][:]
+        mHs = nc.variables['mHs'][:]
+        nc.close()
+    return dtime,sHs,mHs
+
 def dumptonc_ts(outpath,filename,title,basetime,results_dict):
     """
     1. check if nc file already exists
