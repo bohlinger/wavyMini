@@ -1,1 +1,1 @@
-# wavy
+# wavyMini
