@@ -126,3 +126,4 @@ cmd = 'mkdir -p ' + outpath
 os.system(cmd)
 cmd = 'mv *fig_val*.png ' + outpath
 os.system(cmd)
+print('Validation figures produced and moved to: ' + outpath)
