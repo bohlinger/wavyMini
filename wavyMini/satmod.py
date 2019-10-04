@@ -212,7 +212,12 @@ def get_remotefiles(satpath,destination,sdate,edate,timewin,
         tmpdate = datetime((tmpdate + relativedelta(months=+1)).year,(tmpdate + relativedelta(months=+1)).month,1)
     print ('Files downloaded to: \n' + destination)
     print('Organizing downloaded files in year and month')
-    os.system('cd ' + destination + ' && python /home/vietadm/wavy/wavy/sort.py')
+    from os.path import expanduser
+    home = expanduser("~")
+    os.system('cd ' + destination 
+            + ' && python '
+            + home
+            + '/wavyMini/wavyMini/sort.py')
 
 # flatten all lists before returning them
 # define flatten function for lists
