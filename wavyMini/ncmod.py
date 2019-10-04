@@ -3,9 +3,9 @@
 # ---------------------------------------------------------------------#
 '''
 This module encompasses classes and methods to read and write to netcdf 
-files from model, station, or satellite output. I try to mostly follow 
-the PEP convention for python code style. Constructive comments on style 
-and effecient programming are most welcome!
+files from model, station, or satellite output. Functions not necessary 
+for Vietnam have been removed to keep code short and concise. Some code 
+is left to serve as examples.
 '''
 # --- import libraries ------------------------------------------------#
 '''

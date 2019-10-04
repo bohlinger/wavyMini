@@ -3,14 +3,11 @@
 # ---------------------------------------------------------------------#
 '''
 This module encompasses classes and methods to read and process wave
-field related data from satellites. I try to mostly follow the PEP 
-convention for python code style. Constructive comments on style and 
-effecient programming are most welcome!
+field related data from satellites.
 '''
 # --- import libraries ------------------------------------------------#
 '''
-List of libraries needed for this class. Sorted in categories to serve
-effortless orientation. May be combined at some point.
+List of libraries needed for this class.
 '''
 # progress bar and other stuff
 import sys

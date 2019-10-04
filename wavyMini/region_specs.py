@@ -2,7 +2,8 @@
 dict for regions, currently defined by lat(e/w) lon(s/n) borders.
 llcrnrlon=12.2,llcrnrlat=67.6,urcrnrlon=13.2,urcrnrlat=67.9
 Ultimately, a shape file or polygon would be preferred.
-Polygones are given as dict below.
+Polygones are given as dict below. For Vietnam polygon approach 
+has been disabled but examples are left here for orientation.
 '''
 region_dict = {"Global":            {
                                     "llcrnrlon":-180,

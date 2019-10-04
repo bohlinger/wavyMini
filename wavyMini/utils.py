@@ -36,6 +36,7 @@ def block_detection(time,deltalim=None):
 
 def identify_outliers(time,ts,ts_ref=None,hs_ll=None,hs_ul=None,dt=None,block=None):
     """
+    Crude method following the ordenary blockwise approach 
     time -> time series to check neighbour values
     ts -> time series to be checked for outliers
     ts_ref -> time series to compare to (optional)

@@ -1,7 +1,5 @@
 """
 python file including needed paths
-the integrated wave verification system should be able to run
-including only the paths listed here
 """
 
 downloadpath = '/home/vietadm/wavyMini/data/altimetry/'

@@ -3,9 +3,7 @@
 # ---------------------------------------------------------------------#
 '''
 This module encompasses classes and methods to read and process wave
-field related data from stations. I try to mostly follow the PEP 
-convention for python code style. Constructive comments on style and 
-effecient programming are most welcome!
+field related data from stations.
 '''
 __version__ = "0.5.0"
 __author__="Patrik Bohlinger, Norwegian Meteorological Institute"
@@ -15,8 +13,7 @@ __status__ = "operational ARCMFC branch"
 
 # --- import libraries ------------------------------------------------#
 '''
-List of libraries needed for this class. Sorted in categories to serve
-effortless orientation. May be combined at some point.
+List of libraries needed for this class.
 '''
 # ignore irrelevant warnings from matplotlib for stdout
 import warnings
