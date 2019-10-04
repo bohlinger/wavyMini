@@ -6,7 +6,7 @@ wavypath = home + '/wavyMini/wavyMini'
 sys.path.append(wavypath)
 
 from graphicsmod import make_val_ts_fig_arcmfc, make_val_scatter_fig_arcmfc
-from ncmod import get_arcmfc_stats, get_coll_ts
+from ncmod import get_coll_stats, get_coll_ts
 from datetime import datetime, timedelta
 import argparse
 from argparse import RawTextHelpFormatter
@@ -53,7 +53,7 @@ if args.path is None:
 
 # settings
 fc_date = datetime.now()
-forecasts = [12, 36, 60]
+forecasts = [0,6,12,18,24,30,36,42,48]
 val_names = ['rmsd','bias','corr','SI','nov']
 
 args.mod = 'SWAN'
