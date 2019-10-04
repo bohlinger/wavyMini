@@ -64,7 +64,7 @@ else:
 if args.path is None:
     args.path = home + '/wavyMini/data'
 
-if dist is None:
+if args.dist is None:
     args.dist = 10
 
 if twin is None:
@@ -79,7 +79,6 @@ forecasts = [0,6,12,18,24,30,36,42,48]
 # settings
 timewin = args.twin # minutes
 distlim = args.dist # km
-
 region = args.reg
 model = args.mod
 sat = args.sat
