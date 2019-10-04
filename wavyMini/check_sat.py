@@ -23,7 +23,7 @@ Check availability of satellite SWH data. Example:
     """,
     formatter_class = RawTextHelpFormatter
     )
-parser.add_argument("-r", metavar='region',
+parser.add_argument("-reg", metavar='region',
     help="region to check")
 parser.add_argument("-sat", metavar='satellite',
     help="source satellite mission")
@@ -33,7 +33,7 @@ parser.add_argument("-sd", metavar='startdate',
     help="start date of time period to check")
 parser.add_argument("-ed", metavar='enddate',
     help="end date of time period to check")
-parser.add_argument("-m", metavar='model',
+parser.add_argument("-mod", metavar='model',
     help="chosen wave model")
 parser.add_argument("-lt", metavar='lead time', type=int,
     help="lead time from initialization")
@@ -89,7 +89,7 @@ if args.sat == 'all':
     dtime = []
     for sat in satlist:
         sa_obj = sa(sdate,sat=sat,edate=edate,
-                    timewin=timewin,region=args.r)
+                    timewin=timewin,region=args.reg)
 #                    timewin=timewin,polyreg=args.r)
         loc0.append(sa_obj.loc[0])
         loc1.append(sa_obj.loc[1])
@@ -106,7 +106,7 @@ if args.sat == 'all':
     sa_obj.Hs = np.array(Hs)
     sa_obj.time = time
     sa_obj.dtime = dtime
-    sa_obj.region = args.r
+    sa_obj.region = args.reg
     sa_obj.sat = str(satlist)
 elif args.sat == 'multi':
     satlist = args.list.split(',')
@@ -117,7 +117,7 @@ elif args.sat == 'multi':
     dtime = []
     for sat in satlist:
         sa_obj = sa(sdate,sat=sat,edate=edate,
-                    timewin=timewin,region=args.r)
+                    timewin=timewin,region=args.reg)
 #                    timewin=timewin,polyreg=args.r)
         loc0.append(sa_obj.loc[0])
         loc1.append(sa_obj.loc[1])
@@ -132,37 +132,37 @@ elif args.sat == 'multi':
     loc = [loc0,loc1]
     sa_obj.loc = loc
     sa_obj.Hs = Hs
-    sa_obj.region = args.r
+    sa_obj.region = args.reg
     sa_obj.sat = str(satlist)
 else:
-    sa_obj = sa(sdate,sat=args.sat,edate=edate,timewin=timewin,region=args.r)
+    sa_obj = sa(sdate,sat=args.sat,edate=edate,timewin=timewin,region=args.reg)
 #    sa_obj = sa(sdate,sat=args.sat,edate=edate,timewin=timewin,polyreg=args.r)
 
 # plot
 if bool(args.show)==True:
-    if args.m is None:
+    if args.mod is None:
         plot_sat(sa_obj)
-    elif (args.m is not None and args.col is True):
+    elif (args.mod is not None and args.col is True):
         # get model collocated values
-        check_date(args.m,fc_date=edate,leadtime=args.lt)
+        check_date(args.mod,fc_date=edate,leadtime=args.lt)
         #get_model
         init_date = edate - timedelta(hours=args.lt)
         model_Hs,model_lats,model_lons,model_time,model_time_dt = \
-            get_model(simmode="fc",model=args.m,fc_date=edate,
+            get_model(simmode="fc",model=args.mod,fc_date=edate,
             leadtime=args.lt,init_date=init_date)
         #collocation
-        results_dict = collocate(args.m,model_Hs,model_lats,
+        results_dict = collocate(args.mod,model_Hs,model_lats,
             model_lons,model_time_dt,sa_obj,edate,distlim=dist)
         valid_dict=validate(results_dict)
         disp_validation(valid_dict)
-        comp_fig(args.m,sa_obj,model_Hs,model_lons,model_lats,results_dict)
+        comp_fig(args.mod,sa_obj,model_Hs,model_lons,model_lats,results_dict)
     else:
         # get model collocated values
-        check_date(args.m,fc_date=edate,leadtime=args.lt)
+        check_date(args.mod,fc_date=edate,leadtime=args.lt)
         #get_model
         init_date = edate - timedelta(hours=args.lt)
         model_Hs,model_lats,model_lons,model_time,model_time_dt = \
-            get_model(simmode="fc",model=args.m,fc_date=edate,
+            get_model(simmode="fc",model=args.mod,fc_date=edate,
             leadtime=args.lt,init_date=init_date)
         results_dict = {'valid_date':[edate],
                         'date_matches':[edate-timedelta(minutes=timewin),
@@ -170,7 +170,7 @@ if bool(args.show)==True:
                         'model_lons_matches':sa_obj.loc[1],
                         'model_lats_matches':sa_obj.loc[0],
                         'sat_Hs_matches':sa_obj.Hs}
-        comp_fig(args.m,sa_obj,model_Hs,model_lons,model_lats,results_dict)
+        comp_fig(args.mod,sa_obj,model_Hs,model_lons,model_lats,results_dict)
 
 # check availability
 if bool(args.a)==True:
