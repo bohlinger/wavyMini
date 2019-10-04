@@ -432,21 +432,14 @@ def dumptonc_stats(outpath,filename,title,basetime,time_dt,valid_dict):
         ncnov[:] = nov
     nc.close()
 
-def dumptonc_s3a(sa_obj,outpath,mode=None):
+def dumptonc_sat(sa_obj,outpath,mode=None):
     """
-    1. check if nc file already exists
-    2. - if so use append mode
-       - if not create file
-    3. make sure files are only for one single month
+    dump satellite altimetry data to netcdf-file
     """
     sdate=sa_obj.sdate
     edate=sa_obj.edate
-    if mode == 'diana':
-        filename = ("s3a_"
-                + sa_obj.region
-                + "_region.nc")
-    else:
-        filename = ("altimeter_"
+    filename = (sa_obj.sat
+                + "_"
                 + sa_obj.region
                 + "_"
                 + sdate.strftime("%Y%m%d%H%M%S")
@@ -454,14 +447,14 @@ def dumptonc_s3a(sa_obj,outpath,mode=None):
                 + edate.strftime("%Y%m%d%H%M%S")
                 + ".nc")
     fullpath = outpath + filename
-    # 1. check if nc file already exists
     os.system('mkdir -p ' + outpath)
-    print ('Dump altimeter wave data to file: ' + fullpath)
+    print ('Dump altimeter wave from ' 
+            + sa_obj.sat 
+            + ' data to file: ' + fullpath)
     nc = netCDF4.Dataset(
                     fullpath,mode='w',
-#                    format='NETCDF4'
                     )
-    nc.title = 's3a altimeter significant wave height'
+    nc.title = sa_obj.sat + ' altimeter significant wave height'
     timerange=len(sa_obj.ridx)
     dimsize = None
     # dimensions
@@ -492,21 +485,21 @@ def dumptonc_s3a(sa_obj,outpath,mode=None):
                            )
 
     # generate time for netcdf file
-    basetime=datetime(2000,1,1)
+    basetime=sa_obj.basetime
     nctime.units = 'seconds since 2000-01-01 00:00:00'
-    nctime[:] = sa_obj.rTIME
+    nctime[:] = sa_obj.time
     ncHs.units = 'm'
-    ncHs[:] = sa_obj.rHs
+    ncHs[:] = sa_obj.Hs
     ncHs.standard_name = 'sea_surface_wave_significant_height'
     ncHs.long_name = \
         'Significant wave height estimate from altimeter wave form'
     ncHs.valid_range = 0., 25.
     nclongitude.units = 'degree_east'
-    nclongitude[:] = sa_obj.rloc[1]
+    nclongitude[:] = sa_obj.loc[1]
     nclongitude.standard_name = 'longitude'
     nclongitude.valid_min = -180.
     nclongitude.valid_max = 180.
-    nclatitude[:] = sa_obj.rloc[0]
+    nclatitude[:] = sa_obj.loc[0]
     nclatitude.standard_name = 'latitude'
     nclatitude.units = 'degree_north'
     nclatitude.valid_min = -90.
