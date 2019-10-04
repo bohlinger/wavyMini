@@ -127,7 +127,7 @@ def get_coll_ts(pathtofile):
     indicator = os.path.isfile(pathtofile)
     if indicator is False:
         dtime = False
-        print('File does not exist')
+        print('File ' + pathtofile + ' does not exist')
         return
     else:
         nc = netCDF4.Dataset(
@@ -145,7 +145,8 @@ def get_coll_stats(pathtofile):
     indicator = os.path.isfile(pathtofile)
     if indicator is False:
         dtime = False
-        sys.exit('File does not exist')
+        print('File ' + pathtofile + ' does not exist')
+        return
     else:
         nc = netCDF4.Dataset(
             pathtofile,mode='r',
