@@ -5,7 +5,7 @@ home = os.path.expanduser("~")
 wavypath = home + '/wavyMini/wavyMini'
 sys.path.append(wavypath)
 
-from graphicsmod import make_val_ts_fig_arcmfc, make_val_scatter_fig_arcmfc
+from graphicsmod import make_val_ts_fig, make_val_scatter_fig
 from ncmod import get_coll_stats, get_coll_ts
 from datetime import datetime, timedelta
 import argparse
@@ -87,7 +87,7 @@ for val_name in val_names:
                             + "_ts_" + val_name
                             + "_%Y%m.png")
     ts = valid_dict_lst[val_name]
-    make_val_ts_fig_arcmfc(val_name,ts,dtime_lst,filename_fig,forecasts)
+    make_val_ts_fig(val_name,ts,dtime_lst,filename_fig,forecasts)
 
 # Get collocation ts
 dtime_lst = []
@@ -116,7 +116,7 @@ for i in range(len(forecasts)):
     filename_fig = fc_date.strftime("fig_val_scatter_lt"
                             + "{:0>3d}".format(forecasts[i])
                             + "h_%Y%m.png")
-    make_val_scatter_fig_arcmfc(mHs_lst[i],sHs_lst[i],filename_fig,forecasts,i)
+    make_val_scatter_fig(mHs_lst[i],sHs_lst[i],filename_fig,forecasts,i)
 
 # clean up
 outpath=(args.path + '/ValidationFigures/'
