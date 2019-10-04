@@ -9,6 +9,9 @@ Example tailored to Vietnam workshop comprising:
 2. quicklook examples  
 3. usage examples on collocation and validation  
 
+## Additional info
+For this version much of the code has been removed to keep mostly only what is necessary for the Vietnam workshop. Some rests and zombies are remaining to save me some time.
+
 ## Getting Started
 ### Installing wavyMini (aready done on your laptop)
 1. First download or clone the wavyMini github repository: https://github.com/bohlinger/wavyMini  
