@@ -67,22 +67,25 @@ corr_lst = []
 SI_lst = []
 nov_lst = []
 for element in forecasts:
-    inpath=(args.path + '/ValidationFiles/'
+    try:
+        inpath=(args.path + '/ValidationFiles/'
             + args.sat
             + fc_date.strftime('/%Y/%m/'))
-    filename_stats = fc_date.strftime(args.mod
+        filename_stats = fc_date.strftime(args.mod
                                 + "_vs_"
                                 + args.sat
                                 + "_val_ts_lt"
                                 + "{:0>3d}".format(element)
                                 + "h_%Y%m.nc")
-    valid_dict, dtime = get_coll_stats(inpath + filename_stats)
-    rmsd_lst.append(valid_dict['rmsd'])
-    bias_lst.append(valid_dict['bias'])
-    corr_lst.append(valid_dict['corr'])
-    SI_lst.append(valid_dict['SI'])
-    nov_lst.append(valid_dict['nov'])
-    dtime_lst.append(dtime)
+        valid_dict, dtime = get_coll_stats(inpath + filename_stats)
+        rmsd_lst.append(valid_dict['rmsd'])
+        bias_lst.append(valid_dict['bias'])
+        corr_lst.append(valid_dict['corr'])
+        SI_lst.append(valid_dict['SI'])
+        nov_lst.append(valid_dict['nov'])
+        dtime_lst.append(dtime)
+    except Exception as e:
+        print(e)
 
 valid_dict_lst = {'rmsd':rmsd_lst,
                   'bias':bias_lst,
@@ -103,19 +106,22 @@ dtime_lst = []
 sHs_lst = []
 mHs_lst = []
 for element in forecasts:
-    inpath=(args.path + '/CollocationFiles/'
+    try:
+        inpath=(args.path + '/CollocationFiles/'
             + args.sat
             + fc_date.strftime('/%Y/%m/'))
-    filename_coll = fc_date.strftime(args.mod
+        filename_coll = fc_date.strftime(args.mod
                                 + "_vs_"
                                 + sat
                                 + "_coll_ts_lt"
                                 + "{:0>3d}".format(element)
                                 + "h_%Y%m.nc")
-    dtime, sHs, mHs = get_coll_ts(inpath + filename_coll)
-    dtime_lst.append(dtime)
-    sHs_lst.append(sHs)
-    mHs_lst.append(mHs)
+        dtime, sHs, mHs = get_coll_ts(inpath + filename_coll)
+        dtime_lst.append(dtime)
+        sHs_lst.append(sHs)
+        mHs_lst.append(mHs)
+    except Exception as e:
+        print(e)
 
 # Make scatter-plots
 for i in range(len(forecasts)):
