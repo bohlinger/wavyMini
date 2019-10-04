@@ -33,6 +33,10 @@ parser.add_argument("-sd", metavar='startdate',
     help="start date of time period")
 parser.add_argument("-ed", metavar='enddate',
     help="end date of time period")
+parser.add_argument("-twin", metavar='twin',
+    help="time window in minutes")
+parser.add_argument("-dist", metavar='distlim',
+    help="distance limit in km")
 parser.add_argument("-sat", metavar='satellite',
     help="satellite mission")
 parser.add_argument("-mod", metavar='model',
@@ -59,6 +63,13 @@ else:
 
 if args.path is None:
     args.path = home + '/wavyMini/data'
+
+if dist is None:
+    args.dist = 10
+
+if twin is None:
+    args.twin = 60
+
 # retrieve PID
 grab_PID()
 
@@ -66,8 +77,8 @@ grab_PID()
 forecasts = [0,6,12,18,24,30,36,42,48]
 
 # settings
-timewin = 30 # minutes
-distlim = 6 # km
+timewin = args.twin # minutes
+distlim = args.dist # km
 
 region = args.reg
 model = args.mod
