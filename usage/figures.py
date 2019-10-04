@@ -53,7 +53,8 @@ if args.path is None:
 
 # settings
 fc_date = datetime.now()
-forecasts = [0,6,12,18,24,30,36,42,48]
+#forecasts = [0,6,12,18,24,30,36,42,48]
+forecasts = [30]
 val_names = ['rmsd','bias','corr','SI','nov']
 
 args.mod = 'SWAN'
