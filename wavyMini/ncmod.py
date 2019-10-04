@@ -140,6 +140,58 @@ def get_coll_ts(pathtofile):
         nc.close()
     return dtime,sHs,mHs
 
+def get_arcmfc_ts(pathtofile):
+    import os.path
+    indicator = os.path.isfile(pathtofile)
+    if indicator is False:
+        dtime = False
+        sys.exit('File does not exist')
+    else:
+        nc = netCDF4.Dataset(
+            pathtofile,mode='r',
+            )
+        time_var = nc.variables['time']
+        dtime = netCDF4.num2date(time_var[:],time_var.units)
+        sHs = nc.variables['sHs'][:]
+        mHs = nc.variables['mHs'][:]
+        nc.close()
+    return dtime,sHs,mHs
+
+def get_arcmfc_stats(pathtofile):
+    import os.path
+    indicator = os.path.isfile(pathtofile)
+    if indicator is False:
+        dtime = False
+        sys.exit('File does not exist')
+    else:
+        nc = netCDF4.Dataset(
+            pathtofile,mode='r',
+            )
+        time_var = nc.variables['time']
+        dtime = netCDF4.num2date(time_var[:],time_var.units)
+        mop = nc.variables['mop'][:]
+        mor = nc.variables['mor'][:]
+        rmsd = nc.variables['rmsd'][:]
+        msd = nc.variables['msd'][:]
+        corr = nc.variables['corr'][:]
+        mad = nc.variables['mad'][:]
+        bias = nc.variables['bias'][:]
+        SI = nc.variables['SI'][:]
+        nov = nc.variables['nov'][:]
+        nc.close()
+        valid_dict = {
+            'mop':mop,
+            'mor':mor,
+            'msd':msd,
+            'nov':nov,
+            'rmsd':rmsd,
+            'msd':msd,
+            'corr':corr,
+            'mad':mad,
+            'bias':bias,
+            'SI':SI}
+    return valid_dict, dtime
+
 def dumptonc_ts(outpath,filename,title,basetime,results_dict):
     """
     1. check if nc file already exists
