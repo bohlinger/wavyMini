@@ -18,14 +18,12 @@ parser = argparse.ArgumentParser(
 Plot simple validation figures.
 
 Usage:
-./figures.py -sd 2019100118 -ed 2019100118 -sat c2 -mod SWAN
+./figures.py -d 201910 -sat c2 -mod SWAN
     """,
     formatter_class = RawTextHelpFormatter
     )
-parser.add_argument("-sd", metavar='startdate',
-    help="start date of time period")
-parser.add_argument("-ed", metavar='enddate',
-    help="end date of time period")
+parser.add_argument("-d", metavar='date',
+    help="date to specify month that shall be plotted")
 parser.add_argument("-mod", metavar='model',
     help="wave model")
 parser.add_argument("-sat", metavar='satellite',
@@ -35,30 +33,19 @@ parser.add_argument("-path", metavar='destination',
 
 args = parser.parse_args()
 
-now = datetime.now()
-
-if args.sd is None:
-    sdate = datetime(now.year,now.month,now.day)-timedelta(days=1)
-else:
-    sdate = datetime(int(args.sd[0:4]),int(args.sd[4:6]),
-                int(args.sd[6:8]),int(args.sd[8:10]))
-if args.ed is None:
-    edate = datetime(now.year,now.month,now.day)-timedelta(hours=1)
-else:
-    edate = datetime(int(args.ed[0:4]),int(args.ed[4:6]),
-                int(args.ed[6:8]),int(args.ed[8:10]))
-
 if args.path is None:
     args.path = home + '/wavyMini/data'
 
 # settings
-fc_date = datetime.now()
+fc_date = datetime(int(args.d[0:4]),int(args.d[4:6]),1)
 #forecasts = [0,6,12,18,24,30,36,42,48]
 forecasts = [30]
 val_names = ['rmsd','bias','corr','SI','nov']
 
-args.mod = 'SWAN'
-args.sat = 'c2'
+if args.mod is None:
+    args.mod = 'SWAN'
+if args.sat is None:
+    args.sat = 'c2'
 
 # Get stats ts
 dtime_lst = []
