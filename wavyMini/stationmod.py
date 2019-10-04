@@ -5,12 +5,6 @@
 This module encompasses classes and methods to read and process wave
 field related data from stations.
 '''
-__version__ = "0.5.0"
-__author__="Patrik Bohlinger, Norwegian Meteorological Institute"
-__maintainer__ = "Patrik Bohlinger"
-__email__ = "patrikb@met.no"
-__status__ = "operational ARCMFC branch"
-
 # --- import libraries ------------------------------------------------#
 '''
 List of libraries needed for this class.
