@@ -432,7 +432,7 @@ def dumptonc_stats(outpath,filename,title,basetime,time_dt,valid_dict):
         ncnov[:] = nov
     nc.close()
 
-def dumptonc_sat(sa_obj,outpath,mode=None):
+def dumptonc_sat(sa_obj,outpath):
     """
     dump satellite altimetry data to netcdf-file
     """

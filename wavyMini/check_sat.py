@@ -14,6 +14,7 @@ from modelmod import get_model, check_date
 from validationmod import comp_fig, validate
 from collocmod import collocate
 from  utils import disp_validation
+from ncmod import dumptonc_sat
 
 # parser
 parser = argparse.ArgumentParser(
@@ -183,4 +184,4 @@ if args.save is not None:
 
 # dump to .ncfile
 if args.dump is not None:
-    sa_obj.dumptonc(args.dump)
+    dumptonc_sat(sa_obj,args.dump)
