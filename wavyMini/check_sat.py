@@ -20,7 +20,9 @@ from ncmod import dumptonc_sat
 parser = argparse.ArgumentParser(
     description="""
 Check availability of satellite SWH data. Example:
-./check_sat.py -sat s3a -r mwam4 -sd 2019060112 -ed 2019060318 -a --show -save outpath/ -dump outpath/
+./check_sat.py -sat c2 -mod SWAN -reg Vietnam -sd 2019100118 -lt 30 -twin 30 -col --show
+./check_sat.py -sat c2 -reg Vietnam -sd 2019100118 -ed 2019100318 --show
+./check_sat.py -sat c2 -reg Vietnam -sd 2019100118 -ed 2019100318 -dump outpath/
     """,
     formatter_class = RawTextHelpFormatter
     )
@@ -44,12 +46,8 @@ parser.add_argument("-dist", metavar='distance limit', type=int,
     help="distance limit for collocation")
 parser.add_argument("-col",metavar="collocation",
     help="collocation",action='store_const',const=True)
-parser.add_argument("-a",
-    help="compute availability",action='store_const',const=True)
 parser.add_argument("--show",
     help="show figure",action='store_const',const=True)
-parser.add_argument("-save",metavar='outpath',
-    help="save figure(s)")
 parser.add_argument("-dump", metavar="outpath",
     help="dump data to .nc-file")
 
@@ -172,15 +170,6 @@ if bool(args.show)==True:
                         'model_lats_matches':sa_obj.loc[0],
                         'sat_Hs_matches':sa_obj.Hs}
         comp_fig(args.mod,sa_obj,model_Hs,model_lons,model_lats,results_dict)
-
-# check availability
-if bool(args.a)==True:
-    freqlst,datelst=sa_obj.bintime()
-    sa_obj.plotavail(datelst,freqlst,show=bool(args.show),save=bool(args.save))
-
-if args.save is not None:
-    os.system('mkdir -p ' + args.save)
-    os.system('mv altimeter*.pdf ' + args.save)
 
 # dump to .ncfile
 if args.dump is not None:

@@ -6,7 +6,7 @@ wavypath = home + '/wavyMini/wavyMini'
 sys.path.append(wavypath)
 
 from graphicsmod import make_val_ts_fig_arcmfc, make_val_scatter_fig_arcmfc
-from ncmod import get_arcmfc_stats, get_arcmfc_ts
+from ncmod import get_arcmfc_stats, get_coll_ts
 from datetime import datetime, timedelta
 import argparse
 from argparse import RawTextHelpFormatter
@@ -76,7 +76,7 @@ for element in forecasts:
                                 + "_val_ts_lt"
                                 + "{:0>3d}".format(element)
                                 + "h_%Y%m.nc")
-    valid_dict, dtime = get_arcmfc_stats(inpath + filename_stats)
+    valid_dict, dtime = get_coll_stats(inpath + filename_stats)
     rmsd_lst.append(valid_dict['rmsd'])
     bias_lst.append(valid_dict['bias'])
     corr_lst.append(valid_dict['corr'])
@@ -112,7 +112,7 @@ for element in forecasts:
                                 + "_coll_ts_lt"
                                 + "{:0>3d}".format(element)
                                 + "h_%Y%m.nc")
-    dtime, sHs, mHs = get_arcmfc_ts(inpath + filename_coll)
+    dtime, sHs, mHs = get_coll_ts(inpath + filename_coll)
     dtime_lst.append(dtime)
     sHs_lst.append(sHs)
     mHs_lst.append(mHs)
