@@ -43,9 +43,9 @@ parser.add_argument("-mod", metavar='model',
 parser.add_argument("-lt", metavar='lead time', type=int,
     help="lead time from initialization")
 parser.add_argument("-twin", metavar='time window', type=int,
-    help="time window for collocation")
+    help="time window for collocation in minutes")
 parser.add_argument("-dist", metavar='distance limit', type=int,
-    help="distance limit for collocation")
+    help="distance limit for collocation in km")
 parser.add_argument("-col",metavar="collocation",
     help="collocation",action='store_const',const=True)
 parser.add_argument("--show",

@@ -24,7 +24,6 @@ Collocate wave model output and s3a data and dump to monthly nc-file.
 If file exists, data is appended.
 
 Usage:
-./collocate.py
 ./collocate.py -sd 2019100118 -ed 2019100118 -sat c2 -mod SWAN -reg Vietnam
     """,
     formatter_class = RawTextHelpFormatter

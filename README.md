@@ -16,6 +16,10 @@ Info on how-to clone a repository:
 https://help.github.com/en/articles/cloning-a-repository  
 2. To make it consistent please use as target location your home directory e.g.: ~/wavyMini.
 
+### HELP
+Executable files usually have help function which can be read using e.g.:
+./executable.py -h
+
 ### Preparations
 1. Store your credentials for Copernicus in ~/.netrc:  
 ```

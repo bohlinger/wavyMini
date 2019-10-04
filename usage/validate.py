@@ -25,7 +25,6 @@ Validate wave model output against s3a data and dump to monthly nc-file.
 If file exists, data is appended.
 
 Usage:
-./validate.py
 ./validate.py -sd 2019100118 -ed 2019100118 -sat c2 -mod SWAN
     """,
     formatter_class = RawTextHelpFormatter
