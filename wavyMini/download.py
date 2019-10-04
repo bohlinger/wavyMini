@@ -1,4 +1,7 @@
 #!/usr/bin/env python
+import os
+home = os.path.expanduser("~")
+
 import time
 from datetime import datetime, timedelta
 from satmod import get_remotefiles
@@ -48,7 +51,7 @@ else:
                 int(args.ed[6:8]),int(args.ed[8:10]))
 
 if args.path is None:
-    targetpath = "tmp_wavyData/"
+    targetpath = home + "/wavyMini/data/altimetry/"
 else:
     targetpath = args.path
 

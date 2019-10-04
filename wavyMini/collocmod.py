@@ -1,7 +1,7 @@
 """
-- Module that should take care of collocation of points or swaths
-- Needs input from modules that retrieve from observational platforms
-  and models
+- Module that takes care of collocation of points or swaths
+- Needs input from modules that retrieve from observational 
+  platforms and models
 """
 import sys
 import numpy as np
@@ -23,7 +23,7 @@ def collocation_loop(
         sat_rlat=sat_rlats[j]
         sat_rlon=sat_rlons[j]
         # constraints to reduce workload
-        if (model == 'ecwam' or model == 'swan_karmoy250' or model == 'SWAN'):
+        if (model == 'SWAN'):
             model_rlons_M, model_rlats_M = np.meshgrid(
                                             model_rlons, model_rlats
                                             )
@@ -151,7 +151,6 @@ def collocate(model,model_Hs,model_lats,model_lons,model_time_dt,\
             moving_win)
     for j in range(len(sat_time_dt)):
         progress(j,str(int(len(sat_time_dt))),'')
-#        for k in range(1):
         try:
             resultlst = collocation_loop(\
                 j,sat_time_dt,model_time_dt_valid,distlim,model,\

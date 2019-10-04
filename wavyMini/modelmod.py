@@ -3,14 +3,11 @@
 # ---------------------------------------------------------------------#
 '''
 This module encompasses classes and methods to read and process wave
-field from model output. I try to mostly follow the PEP convention for 
-python code style. Constructive comments on style and effecient 
-programming are most welcome!
+field from model output. 
 '''
 # --- import libraries ------------------------------------------------#
 '''
-List of libraries needed for this class. Sorted in categories to serve
-effortless orientation. May be combined at some point.
+List of libraries needed for this class.
 '''
 import sys
 
@@ -45,18 +42,9 @@ from model_specs import model_dict
 # matchtime fct
 from stationmod import matchtime
 
-# module to dump satellite_class object into nc-file
-# should also treat other similar type data
-
-# 1: get_model for given time period
-# 2: dumptonc based on model (e.g. MWAM4, ARCMFC, ARCMFCnew)
-# 3: choose create or append based on the existence of the file
-# Must have one unlimited dimension (time), and two spatial dimensions
-#   (latitude, longitude, which depend on rlat,rlon)
-
 # --- global functions ------------------------------------------------#
 """
-definition of some global functions
+definition of some global functions.
 """
 # currently None
 # ---------------------------------------------------------------------#

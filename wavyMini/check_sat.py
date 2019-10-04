@@ -19,7 +19,9 @@ from ncmod import dumptonc_sat
 # parser
 parser = argparse.ArgumentParser(
     description="""
-Check availability of satellite SWH data. Example:
+Check availability of satellite altimetry data. 
+
+Example:
 ./check_sat.py -sat c2 -mod SWAN -reg Vietnam -sd 2019100118 -lt 30 -twin 30 -col --show
 ./check_sat.py -sat c2 -reg Vietnam -sd 2019100118 -ed 2019100318 --show
 ./check_sat.py -sat c2 -reg Vietnam -sd 2019100118 -ed 2019100318 -dump outpath/

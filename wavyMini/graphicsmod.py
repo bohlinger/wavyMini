@@ -2,16 +2,12 @@
 # -*- coding: utf-8 -*-
 # ---------------------------------------------------------------------#
 '''
-Module to handle all visualization related functions.
-
-I try to mostly follow the PEP convention for python code style. 
-Constructive comments on style and effecient programming are most welcome!
+Module to handle visualization related functions.
 '''
 
 # --- import libraries ------------------------------------------------#
 '''
-List of libraries needed for this class. Sorted in categories to serve
-effortless orientation. May be combined at some point.
+List of libraries needed for this module. 
 '''
 # control backend
 import matplotlib
@@ -157,32 +153,3 @@ def make_val_scatter_fig(ts_model_lst,ts_obs_lst,
     plt.savefig(filename_fig,format='png',dpi=50)
     #plt.show()
     return
-
-# ---------------------------------------------------------------------#
-
-
-class graphics_class():
-    '''
-    class to handle graphical applications
-    '''
-    from region_specs import region_dict
-
-    def __init__(self,sdate,edate=None,timewin=None,download=None,region=None,
-                corenum=None,mode=None):
-        print ('# ----- ')
-        print (" ### Initializing graphics_class instance ###")
-        print ('# ----- ')
-        if region is None:
-            region='Global'
-        self.region = region
-        print ("graphics_class object initialized")
-
-# --- help ------------------------------------------------------------#
-if __name__ == '__main__':
-    parser = argparse.ArgumentParser(
-        description="""
-help text is coming
-        """,
-        formatter_class = RawTextHelpFormatter
-        )
-    args = parser.parse_args()
