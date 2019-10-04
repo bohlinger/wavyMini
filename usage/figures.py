@@ -113,7 +113,7 @@ for element in forecasts:
             + fc_date.strftime('/%Y/%m/'))
         filename_coll = fc_date.strftime(args.mod
                                 + "_vs_"
-                                + sat
+                                + args.sat
                                 + "_coll_ts_lt"
                                 + "{:0>3d}".format(element)
                                 + "h_%Y%m.nc")
