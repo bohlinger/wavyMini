@@ -4,7 +4,7 @@ the integrated wave verification system should be able to run
 including only the paths listed here
 """
 
-downloadpath = '/home/vietadm/wavy/data/altimetry/'
+downloadpath = '/home/vietadm/wavyMini/data/altimetry/'
 
 satpath_copernicus = '/lustre/storeB/project/copernicus/ARC-MFC/sentinel3a/'
 satpath_ftp_014_001 = ('/Core/'
