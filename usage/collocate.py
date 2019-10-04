@@ -67,7 +67,7 @@ if args.path is None:
 if args.dist is None:
     args.dist = 10
 
-if twin is None:
+if args.twin is None:
     args.twin = 60
 
 # retrieve PID
