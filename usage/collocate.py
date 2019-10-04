@@ -58,7 +58,7 @@ else:
                 int(args.ed[6:8]),int(args.ed[8:10]))
 
 if args.path is None:
-    args.path = '/home/vietadm/wavyMini/data'
+    args.path = home + '/wavyMini/data'
 # retrieve PID
 grab_PID()
 
