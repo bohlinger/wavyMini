@@ -455,7 +455,7 @@ def dumptonc_sat(sa_obj,outpath):
                     fullpath,mode='w',
                     )
     nc.title = sa_obj.sat + ' altimeter significant wave height'
-    timerange=len(sa_obj.ridx)
+    timerange=len(sa_obj.Hs)
     dimsize = None
     # dimensions
     dimtime = nc.createDimension(
