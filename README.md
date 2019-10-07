@@ -10,7 +10,7 @@ Example tailored to Vietnam workshop comprising:
 3. usage examples on collocation and validation  
 
 ## Additional info
-For this version much of the code has been removed to keep mostly only what is necessary for the Vietnam workshop. Some rests and zombies are remaining to save me some time.
+For this version much of the code has been removed to keep mostly only what is necessary for the Vietnam workshop. Some rests and zombies are remaining to save me some time. The collocation method follows Bohlinger et al. (2019): https://www.sciencedirect.com/science/article/pii/S1463500319300435
 
 ## Getting Started
 ### Installing wavyMini (aready done on your laptop)
