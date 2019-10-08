@@ -36,7 +36,7 @@ parser.add_argument("-ed", metavar='enddate',
 parser.add_argument("-mod", metavar='model',
     help="wave model")
 parser.add_argument("-sat", metavar='satellite',
-    help="satellite mission")
+    help="satellite mission [s3a,s3b,c2,j3,al]")
 parser.add_argument("-path", metavar='destination',
     help="destination of collocated data")
 

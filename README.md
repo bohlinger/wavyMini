@@ -32,6 +32,12 @@ machine nrt.cmems-du.eu   login USER   password PASSWORD
 ```
 ./download.py -sat s3a -sd 2019093000 -ed 2019100400 -nproc 4 -path /home/vietadm/wavyMini/data/altimetry/
 ```
+Available satellites are:
+- s3a (Sentinel 3A)
+- s3b (Sentinel 3B)
+- c2 (Cryosat2)
+- j3 (Jason3)
+- al (SARAL/AltiKa)
 3. SWAN model output must be provided for collocation and validation. E.g. copy your SWAN files to ~/wavyMini/data/SWAN/. The filename format and path of model output must be specified in the model_specs.py e.g: SWAN2019093012.nc.
 
 ### Quicklook examples ~/wavyMini/wavyMini
@@ -49,7 +55,7 @@ machine nrt.cmems-du.eu   login USER   password PASSWORD
 ```
 4. browse for satellite data, collocate and show footprints and model for one time step:
 ```
-./check_sat.py -sat c2 -mod SWAN -reg Vietnam -sd 2019100118 -lt 30 -twin 30 --col --show
+./check_sat.py -sat c2 -mod SWAN -reg Vietnam -sd 2019100118 -lt 30 -twin 30 -col --show
 ```
 
 ### Usage examples ~/wavyMini/usage
@@ -63,5 +69,5 @@ machine nrt.cmems-du.eu   login USER   password PASSWORD
 ```
 3. Plotting basic validation figures:
 ```
-./figures.py -sd 201910 -sat c2 -mod SWAN
+./figures.py -d 201910 -sat c2 -mod SWAN
 ```

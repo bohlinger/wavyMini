@@ -31,7 +31,7 @@ Example:
 parser.add_argument("-reg", metavar='region',
     help="region to check")
 parser.add_argument("-sat", metavar='satellite',
-    help="source satellite mission")
+    help="source satellite mission [s3a,s3b,c2,j3,al]")
 parser.add_argument('-l', '--list', metavar='list of satellites', 
     help='delimited list input for sats', type=str)
 parser.add_argument("-sd", metavar='startdate',
