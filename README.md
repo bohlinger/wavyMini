@@ -4,13 +4,13 @@
 Patrik Bohlinger, Norwegian Meteorological Institute, patrikb@met.no
 
 ## Purpose
-Example tailored to Vietnam workshop comprising:  
+Package to aid wave model validation using satellite altimetry. This example is tailored to the Vietnam workshop comprising:  
 1. downloading satellite data  
 2. quicklook examples  
 3. usage examples on collocation and validation  
 
 ## Additional info
-For this version much of the code has been removed to keep mostly only what is necessary for the Vietnam workshop. Some rests and zombies are remaining to save me some time. The collocation method follows Bohlinger et al. (2019): https://www.sciencedirect.com/science/article/pii/S1463500319300435
+For this version much of the code has been removed to keep mostly only what is necessary for the Vietnam workshop. Some code rests and zombies remain for practical reasons. The collocation method follows Bohlinger et al. (2019): https://www.sciencedirect.com/science/article/pii/S1463500319300435. The satellite data is obtained from http://marine.copernicus.eu/services-portfolio/access-to-products/?option=com_csw&view=details&product_id=WAVE_GLO_WAV_L3_SWH_NRT_OBSERVATIONS_014_001. In the end of this exercise validation figures are produced comparable to http://cmems.met.no/ARC-MFC/WaveValidation/index.html.
 
 ## Getting Started
 ### Installing wavyMini (aready done on your laptop)
@@ -18,6 +18,7 @@ For this version much of the code has been removed to keep mostly only what is n
 Info on how-to clone a repository:
 https://help.github.com/en/articles/cloning-a-repository  
 2. To make it consistent please use as target location your home directory e.g.: ~/wavyMini.
+3. Information on data, both observations and wave model output, needs to be given and stored in the files ~/wavyMini/pathfinder.py and ~/wavyMini/model_specs.py. Please adjust these files according to your plans.
 
 ### HELP
 Executable files usually have help function which can be read using e.g.:
@@ -28,7 +29,7 @@ Executable files usually have help function which can be read using e.g.:
 ```
 machine nrt.cmems-du.eu   login USER   password PASSWORD
 ```
-2. Satellite altimetry data must be downloaded. For this we can use the satellite module satmod.py and an example program called download.py, both located in the  ~/wavyMini/wavyMini directory. Type ./download -h to read instructions. You can download data for the satellite types: s3a, s3b, al, c2, j3. For example type:  
+2. Satellite altimetry data must be downloaded. For this we can use the satellite module satmod.py and an example program called download.py, both located in the  ~/wavyMini/wavyMini directory. Type ./download.py -h to read instructions. You can download data for the satellite types: s3a, s3b, al, c2, j3. For example type:  
 ```
 ./download.py -sat s3a -sd 2019093000 -ed 2019100400 -nproc 4 -path /home/vietadm/wavyMini/data/altimetry/
 ```
