@@ -62,7 +62,15 @@ Available satellites are:
 ```
 ./check_sat.py -sat c2 -mod SWAN -reg Vietnam -sd 2019100118 -lt 30 -twin 30 -col --show
 ```
-
+5. 
+use multiple satellite missions in one line e.g. all of them:
+```
+./check_sat.py -sat all -mod SWAN -reg Vietnam -sd 2019100118 -lt 30 -twin 30 -col --show
+```
+or list of stellites:
+```
+./check_sat.py -sat multi -l s3a,c2,al -mod SWAN -reg Vietnam -sd 2019100118 -lt 30 -twin 30 -col --show
+```
 ### Usage examples ~/wavyMini/usage
 1. Collocation and systematically dump to netcdf-file:
 ```
