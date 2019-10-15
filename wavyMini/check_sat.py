@@ -128,11 +128,11 @@ elif args.sat == 'multi':
     loc0 = flatten(loc0)
     loc1 = flatten(loc1)
     Hs = flatten(Hs)
-    sa_obj.time = time
-    sa_obj.dtime = dtime
+    sa_obj.time = flatten(time)
+    sa_obj.dtime = flatten(dtime)
     loc = [loc0,loc1]
-    sa_obj.loc = loc
-    sa_obj.Hs = Hs
+    sa_obj.loc = np.array(loc)
+    sa_obj.Hs = np.array(Hs)
     sa_obj.region = args.reg
     sa_obj.sat = str(satlist)
 else:
