@@ -29,9 +29,13 @@ Executable files usually have help function which can be read using e.g.:
 ```
 machine nrt.cmems-du.eu   login USER   password PASSWORD
 ```
+For security reasons, the .netrc-file needs to have limited rights other than for the administrator. Correct the file rights if necessary e.g. with
+```
+chmod 700 .netrc
+```
 2. Satellite altimetry data must be downloaded. For this we can use the satellite module satmod.py and an example program called download.py, both located in the  ~/wavyMini/wavyMini directory. Type ./download.py -h to read instructions. You can download data for the satellite types: s3a, s3b, al, c2, j3. For example type:  
 ```
-./download.py -sat s3a -sd 2019093000 -ed 2019100400 -nproc 4 -path /home/vietadm/wavyMini/data/altimetry/
+./download.py -sat c2 -sd 2019093000 -ed 2019100400 -nproc 4 -path /home/vietadm/wavyMini/data/altimetry/
 ```
 Available satellites are:
 - s3a (Sentinel 3A)
