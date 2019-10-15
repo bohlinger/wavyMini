@@ -66,7 +66,7 @@ Available satellites are:
 ```
 ./check_sat.py -sat all -mod SWAN -reg Vietnam -sd 2019100118 -lt 30 -twin 30 -col --show
 ```
-or list of stellites:
+6. or list of stellites:
 ```
 ./check_sat.py -sat multi -l s3a,c2,al -mod SWAN -reg Vietnam -sd 2019100118 -lt 30 -twin 30 -col --show
 ```
