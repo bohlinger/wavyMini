@@ -126,7 +126,7 @@ def make_val_ts_fig(val_name,ts_lst,dtime_lst,filename_fig,forecasts):
     plt.xlim([sdate,edate])
     plt.legend(loc='best')
     plt.tight_layout()
-    plt.savefig(filename_fig,format='png',dpi=50)
+    plt.savefig(filename_fig,format='png',dpi=150)
     #plt.show()
     return
 
@@ -150,6 +150,6 @@ def make_val_scatter_fig(ts_model_lst,ts_obs_lst,
     plt.xlim([0,lmax])
     plt.legend(loc='best')
     plt.tight_layout()
-    plt.savefig(filename_fig,format='png',dpi=50)
+    plt.savefig(filename_fig,format='png',dpi=150)
     #plt.show()
     return
