@@ -110,7 +110,7 @@ if args.sat == 'all':
     sa_obj.region = args.reg
     sa_obj.sat = str(satlist)
 elif args.sat == 'multi':
-    satlist = args.list.split(',')
+    satlist = args.l.split(',')
     loc0 = []
     loc1 = []
     Hs = []
