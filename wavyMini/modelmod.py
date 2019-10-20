@@ -104,6 +104,7 @@ def check_date(model,fc_date=None,init_date=None,leadtime=None):
                        - timedelta(hours=multsix*12)
                        - timedelta(hours=restsix))
     else: tmp_date = fc_date
+    #(datetime(2019,10,1,18)-timedelta(hours=30)).hour
     return tmp_date
 
 def make_filename(simmode=None,model=None,datein=None,

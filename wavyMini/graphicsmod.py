@@ -142,7 +142,7 @@ def make_val_scatter_fig(ts_model_lst,ts_obs_lst,
             label=str(forecasts[i]) + 'h')
     lmin=0.
     #lmax=np.nanmax(list(mHs)+list(sHs))+.5
-    lmax=14
+    lmax=9
     plt.plot([lmin, lmax], [lmin,lmax], ls="--", c=".3")
     plt.ylabel('model',fontsize=fs)
     plt.xlabel('observations',fontsize=fs)
